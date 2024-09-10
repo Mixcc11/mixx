@@ -13,7 +13,7 @@ const addEventOnElem = function (elem , type , callback) {
 const navTogglers = document.querySelectorAll("[data-nav-toggler]");
 const navbar = document.querySelector("[data-navbar]");
 const navbarLinks = document.querySelectorAll("[data-nav-link]");
-const overlay = document.querySelectorAll("[data-overlay]");
+const overlay = document.querySelector("[data-overlay]");
 
 const togglerNavbar = function () {
     navbar.classList.toggle("active");
@@ -29,12 +29,12 @@ const closeNavbar = function () {
 
 addEventOnElem(navbarLinks, "click", closeNavbar);
 
-const header = document.querySelector("data-header");
+const header = document.querySelector("[data-header]");
 
 const headerActive = function () {
-    if(window.screenY > 150) {
+    if(window.scrollY > 150) {
         header.classList.add("active");
-    }else {
+    } else {
         header.classList.remove("active");
     }
 }
@@ -57,7 +57,7 @@ addEventOnElem(window, "scroll", headerSticky);
 
 const section = document.querySelectorAll("[data-section]");
 
-const srollReveal = function () {
+const scrollReveal = function () {
     for(let i = 0 ; i < section.length ; i++) {
         if(section[i].getBoundingClientRect().top < window.innerHeight / 2) {
             section[i].classList.add("active");
@@ -67,9 +67,9 @@ const srollReveal = function () {
     }
 }
 
-srollReveal();
+scrollReveal();
 
-addEventOnElem(window, "scroll", srollReveal);
+addEventOnElem(window, "scroll", scrollReveal);
 
 
 
